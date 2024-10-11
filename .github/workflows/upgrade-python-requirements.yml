@@ -98,7 +98,7 @@ jobs:
 
       - name: Output generated PR value
         id: print_generated_pr
-        run: echo "generated_pr= ${{ steps.createpullrequest.outputs.generated_pr }}"
+        run: echo "generated_pr= ${{ steps.createpullrequest.outputs }}"
 
       - name: Send failure notification
         if: ${{ failure() && inputs.email_address }}
