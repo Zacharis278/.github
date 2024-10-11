@@ -96,6 +96,10 @@ jobs:
           --team-reviewers="$TEAM_REVIEWERS" \
           --delete-old-pull-requests --output-pr-url-for-github-action
 
+      - name: Output generated PR value
+        id: print_generated_pr
+        run: echo "generated_pr= ${{ steps.createpullrequest.outputs.generated_pr }}"
+
       - name: Send failure notification
         if: ${{ failure() && inputs.email_address }}
         uses: dawidd6/action-send-mail@v3
